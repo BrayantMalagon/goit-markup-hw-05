@@ -29,15 +29,9 @@
         <!-- Panel de navegación -->
         <nav class="header-nav">
           <ul class="header-list-nav">
-            <li class="header-item-nav header-item-nav-active">
-              <a href="./index.html" class="header-link active-color">Estudio</a>
-            </li>
-            <li class="header-item-nav">
-              <a href="./portfolio.html" class="header-link ">Portafolio</a>
-            </li>
-            <li class="header-item-nav">
-              <a href="" class="header-link">Contactos</a>
-            </li>
+            <li><a href="./index.html" class="active">Estudio</a></li>
+            <li><a href="./portfolio.html">Portafolio</a></li>
+            <li><a href="">Contactos</a></li>
           </ul>
         </nav>
       </main>
@@ -62,10 +56,19 @@
     <!-- Banner principal-->
       <main class="main-banner">
         <div class="banner-backgroun-rbga">
-        <h1 class="title">SOLUCIONES EFICACES PARA SU NEGOCIO</h1>
-        <div class="button-service">
-          <input class="button-title" type="button" value="Solicite nuestro servicio"/>
+          <h1 class="title">SOLUCIONES EFICACES PARA SU NEGOCIO</h1>
+          <div class="button-service">
+            <input class="button-title" type="button" value="Solicite nuestro servicio" data-modal-open/>
+          </div>
         </div>
+        <div class="backdrop" data-modal>
+          <div class="modal">
+            <button class="close-modal" data-modal-close>
+            <svg class="icon-modal">
+              <use href="./images/icons.svg#icon-x"></use>
+            </svg>
+            </button>
+          </div>
         </div>
       </main>
       <!-- Primera sección valores-->
@@ -331,5 +334,6 @@
         </div>
       </main>
     </footer>
+    <script src="./js/modal.js"></script>
   </body>
 </html>

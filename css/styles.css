@@ -4,6 +4,7 @@
   --banner-color: #2f303a;
   --text-black: #212121;
   --text-grey: #757575;
+  --cubic: cubic-bezier(0.4, 0, 0.2, 1);
 }
 body {
   font-family: 'Roboto', sans-serif;
@@ -50,31 +51,36 @@ body {
   margin: 0%;
   height: 100%;
 }
-.header-item-nav {
-  width: 78px;
-  height: 100%;
-  text-align: center;
-  display: flex;
-  align-items: center;
-}
-.header-item-nav-active {
-  border-bottom: 4px solid var(--main-color);
-  border-radius: 2px;
-}
-.header-link {
+.header-list-nav a {
   color: var(--text-black);
   text-decoration: none;
   text-align: center;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   font-weight: 700;
+  position: relative;
 }
-.header-link:hover,
-.header-link:focus {
+.header-list-nav a:hover,
+.header-list-nav a:focus {
   color: var(--main-color);
   cursor: pointer;
 }
-.active-color {
+/* ------- Uso de after --------- */
+.header-list-nav a::after {
+  content: '';
+  width: 100%;
+  height: 4px;
+  background-color: var(--main-color);
+  border-radius: 2px;
+  position: absolute;
+  top: 44px;
+  left: 0%;
+  opacity: 0;
+}
+.header-list-nav a.active::after {
+  opacity: 1;
+}
+.header-list-nav a.active {
   color: var(--main-color);
 }
 .header-list-address {
@@ -156,6 +162,52 @@ body {
   border-radius: 4px;
 }
 .button-title:hover {
+  cursor: pointer;
+}
+/* ------------  Modal  ------------------- */
+.backdrop {
+  position: fixed;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 250ms var(--cubic);
+}
+.modal {
+  position: absolute;
+  width: 528px;
+  height: 581px;
+  background-color: white;
+  position: fixed;
+  border-radius: 4px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: visible;
+  pointer-events: none;
+}
+.icon-modal {
+  width: 11px;
+  height: 11px;
+}
+.close-modal {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: 8px;
+  margin-right: 8px;
+  padding: 0%;
+}
+.close-modal:hover {
   cursor: pointer;
 }
 /* ----- Primera sección valores --------- */
